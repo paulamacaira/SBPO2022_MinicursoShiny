@@ -1,4 +1,4 @@
-# SBPO 2022: Minicurso
+# SBPO 2022: Minicurso 1
 
 ## Dominando o Shiny: como construir seu primeiro dashboard interativo
 
