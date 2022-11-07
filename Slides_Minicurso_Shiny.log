@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2022.2.3)  7 NOV 2022 18:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2022.2.3)  7 NOV 2022 18:42
 entering extended mode
 **./Slides_Minicurso_Shiny.tex
 (Slides_Minicurso_Shiny.tex
@@ -1143,7 +1143,7 @@ Package pdftex.def Info: RedesSociais.png  used on input line 186.
 <Work.png, id=48, 813.0375pt x 283.81032pt>
 File: Work.png Graphic file (type png)
 <use Work.png>
-Package pdftex.def Info: Work.png  used on input line 215.
+Package pdftex.def Info: Work.png  used on input line 224.
 (pdftex.def)             Requested size: 153.63512pt x 53.63004pt.
 [5
 
@@ -1151,13 +1151,13 @@ Package pdftex.def Info: Work.png  used on input line 215.
 <LetsGo.png, id=56, 1445.4pt x 813.0375pt>
 File: LetsGo.png Graphic file (type png)
 <use LetsGo.png>
-Package pdftex.def Info: LetsGo.png  used on input line 220.
+Package pdftex.def Info: LetsGo.png  used on input line 229.
 (pdftex.def)             Requested size: 307.29231pt x 172.85191pt.
 [6
 
  <./LetsGo.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-38.
+47.
 (C:\Users\paula\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [7
@@ -1166,17 +1166,17 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 289.
+(Font)              <10> on input line 298.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 289.
+(Font)              <7> on input line 298.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 289.
+(Font)              <5> on input line 298.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 289.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 298.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 289.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 298.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 289.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 298.
 [9
 
 ] [10
@@ -1206,7 +1206,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 <RunApp.png, id=129, 449.42906pt x 190.46156pt>
 File: RunApp.png Graphic file (type png)
 <use RunApp.png>
-Package pdftex.def Info: RunApp.png  used on input line 428.
+Package pdftex.def Info: RunApp.png  used on input line 437.
 (pdftex.def)             Requested size: 307.30156pt x 130.22997pt.
 [17
 
@@ -1214,7 +1214,7 @@ Package pdftex.def Info: RunApp.png  used on input line 428.
 <RunApp1.png, id=136, 449.42906pt x 127.22531pt>
 File: RunApp1.png Graphic file (type png)
 <use RunApp1.png>
-Package pdftex.def Info: RunApp1.png  used on input line 438.
+Package pdftex.def Info: RunApp1.png  used on input line 447.
 (pdftex.def)             Requested size: 307.30156pt x 86.99156pt.
 [18
 
@@ -1233,7 +1233,7 @@ Package pdftex.def Info: RunApp1.png  used on input line 438.
 <RunApp2.png, id=172, 319.94531pt x 248.42813pt>
 File: RunApp2.png Graphic file (type png)
 <use RunApp2.png>
-Package pdftex.def Info: RunApp2.png  used on input line 543.
+Package pdftex.def Info: RunApp2.png  used on input line 552.
 (pdftex.def)             Requested size: 153.64522pt x 119.301pt.
 [23
 
@@ -1250,7 +1250,7 @@ Package pdftex.def Info: RunApp2.png  used on input line 543.
 <RunApp3.png, id=198, 566.115pt x 335.75438pt>
 File: RunApp3.png Graphic file (type png)
 <use RunApp3.png>
-Package pdftex.def Info: RunApp3.png  used on input line 621.
+Package pdftex.def Info: RunApp3.png  used on input line 630.
 (pdftex.def)             Requested size: 215.10002pt x 127.57262pt.
 [27
 
@@ -1285,11 +1285,11 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 
 (Slides_Minicurso_Shiny.aux) ) 
 Here is how much of TeX's memory you used:
- 24087 strings out of 478927
- 448670 string characters out of 2852536
- 759641 words of memory out of 3000000
- 41164 multiletter control sequences out of 15000+600000
- 485702 words of font info for 147 fonts, out of 8000000 for 9000
+ 24093 strings out of 478927
+ 448769 string characters out of 2852536
+ 759860 words of memory out of 3000000
+ 41166 multiletter control sequences out of 15000+600000
+ 488672 words of font info for 150 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,11n,124p,1021b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/paula/AppData/Local/Programs/MiKTeX/fon
@@ -1303,11 +1303,11 @@ ype1/public/lm/lmsso10.pfb><C:/Users/paula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/lm/lmtk10.pfb><C:/Users/paula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/lm/lmtt10.pfb><C:/Users/paula/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Slides_Minicurso_Shiny.pdf (31 pages, 5687415 bytes).
+Output written on Slides_Minicurso_Shiny.pdf (31 pages, 5688135 bytes).
 PDF statistics:
  293 PDF objects out of 1000 (max. 8388607)
  93 named destinations out of 1000 (max. 500000)
- 49240 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 51288 words of extra memory for PDF output out of 51595 (max. 10000000)
 
 
 ! pdflatex: major issue: So far, you have not checked for MiKTeX updates.

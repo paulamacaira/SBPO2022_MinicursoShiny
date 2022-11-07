@@ -1,6 +1,6 @@
 ---
 subtitle: "![](hex-shiny.png){width=0.5in}"
-author: "Paula Maçaira"
+author: "Paula Maçaira (DEI, PUC-Rio)"
 date: "SBPO 2022 - Juiz de Fora"
 output: beamer_presentation
 title: 'Dominando o Shiny: como construir seu primeiro dashboard interativo'
@@ -36,9 +36,14 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE, warning = FALSE, message = FALS
 
 ## Falaremos sobre...
 
+\Large \textbf{Dia 1:} \normalsize
+
 1. estrutura básica de um Shiny App
-2. fundamentos da programação reativa
-3. entendendo o layout
+2. fundamentos da programação reativa (inputs e outputs)
+3. entendendo o layout minimamente
+
+\Large \textbf{Dia 2:} \normalsize
+
 4. pacotes plotly, dygraphs e leaflet
 5. como publicar seu Shiny App
 
