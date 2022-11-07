@@ -1,0 +1,53 @@
+---
+title: "![](hex-shiny.png){width=1.5in}"
+subtitle: "Dominando o Shiny: como construir seu primeiro dashboard interativo"
+author: "Paula Maçaira"
+date: "SBPO 2022 - Juiz de Fora"
+output: ioslides_presentation
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Quem sou eu
+
+-   Bacharelado em Estatística (ENCE, 2013)
+-   Mestrado em Eng. Elétrica (PUC-Rio, 2015)
+-   Doutorado em Eng. de Produção (PUC-Rio, 2018)
+-   Pós-doutorado em Eng. de Produção (PUC-Rio, 2019)
+-   Professora Adjunta desde 2019 (DEI, PUC-Rio)
+
+\flushright ![](Paula.png){width="50%"}
+
+## Me encontre em
+
+-   @paula_macaira
+-   github.com/paulamacaira
+-   sites.google.com/view/paulamacaira
+-   [paulamacaira\@puc-rio.br](mailto:paulamacaira@puc-rio.br){.email}
+
+\flushright ![](RedesSociais.png){width="40%"}
+
+## Premissas
+
+-   Presumo que você conheça minimamente a **linguagem R** e o meio ambiente **RStudio**
+
+## Falaremos sobre...
+
+1.  estrutura básica de um Shiny
+2.  componentes úteis da interface do usuário
+3.  fundamentos da programação reativa
+4.  como dar feedback ao usuário
+5.  como fazer upload e download de dados
+6.  como gerar UI com código
+7.  teoria e prática da programação reativa
+
+\center ![](Work.png){width="50%"}
+
+## ...
+
+![](LetsGo.png){width="100%"}
+
