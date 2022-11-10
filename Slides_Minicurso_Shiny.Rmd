@@ -32,26 +32,36 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE, warning = FALSE, message = FALS
 
 ## Premissas
 
--   Presumo que você conheça minimamente a **linguagem R** e o meio ambiente **RStudio**
+- Presumo que você conheça minimamente a **linguagem R** e o meio ambiente **RStudio**
+- Preciso que você tenha instalado o software \texttt{R} e a IDE \texttt{RStudio} em seu computador
 
 ## Falaremos sobre...
 
 \Large \textbf{Dia 1:} \normalsize
 
 1. estrutura básica de um Shiny App
-2. fundamentos da programação reativa (inputs e outputs)
-3. entendendo o layout minimamente
+2. inputs e outputs comuns
+3. o básico da programação reativa
 
 \Large \textbf{Dia 2:} \normalsize
 
-4. pacotes plotly, dygraphs e leaflet
-5. como publicar seu Shiny App
+4. um pouco sobre layouts 
+5. pacotes plotly, dygraphs e leaflet
+6. como publicar seu Shiny App
 
 \center ![](Work.png){width="50%"}
 
 ## ...
 
 ![](LetsGo.png){width="100%"}
+
+## Para acessar todo material
+
+\center ![](qrcode_github.png){width="70%"}
+
+## Vamos começar!
+
+\LARGE \textbf{Dia 1}
 
 ## O que é um Shiny App
 
@@ -85,7 +95,7 @@ Resumindo, o Shiny lhe dá a habilidade de passar alguns de seus superpoderes \t
 
 https://shiny.rstudio.com/gallery/
 
-## Seu primeiro Shiny App
+## First things first
 
 - Se você ainda não instalou o Shiny, faça agora
 
@@ -126,7 +136,7 @@ shinyApp(ui, server)
 
 Embora trivial, este é um aplicativo Shiny completo! 
 
-- Observando atentamente o código acima, nosso **app.R** faz quatro coisas:
+- Observando atentamente o código anterior, nosso **app.R** faz quatro coisas:
 
 1. Ele chama **library(shiny)** para carregar o pacote shiny
 2. Ele define a interface do usuário, a página da Web HTML com a qual os humanos interagem. Neste caso, é uma página contendo as palavras “Hello, world!”
@@ -135,7 +145,7 @@ Embora trivial, este é um aplicativo Shiny completo!
 
 ## Dica do RStudio
 
-Existem duas maneiras convenientes de criar um novo aplicativo no RStudio:
+Existem três maneiras convenientes de criar um novo aplicativo no RStudio:
 
 - Crie um novo diretório e um arquivo **app.R** contendo um aplicativo básico em uma etapa clicando em **File | New Project** e, em seguida, selecionando **New Directory** e **Shiny Web Application**
 - Se você já criou o arquivo **app.R**, pode adicionar rapidamente a estrutura básica do aplicativo digitando “shinyapp” e pressionando **Shift+Tab**
@@ -185,9 +195,10 @@ ui <- fluidPage(
 
 Este exemplo usa quatro novas funções:
 
-- **fluidPage()** é uma função de layout que configura a estrutura visual básica da página. Existem muitas outras estruturas possíveis, sugiro olhar esse [material](https://mastering-shiny.org/action-layout.html#layout).
-- **selectInput()** é um controle de entrada que permite que o usuário interaja com o aplicativo fornecendo um valor. Nesse caso, é uma caixa de seleção com o rótulo "Dataset" e permite que você escolha um dos conjuntos de dados incluídos no pacote *datasets*. Existem muitos outros tipos de entrada, sugiro olhar esse [material](https://mastering-shiny.org/basic-ui.html#inputs).
-- **verbatimTextOutput()** e **tableOutput()** são controles de saída que informam ao Shiny onde colocar a saída. **verbatimTextOutput()** exibe código e **tableOutput()** exibe tabelas. Existem muitos outros tipos de saída, sugiro olhar esse [material](https://mastering-shiny.org/basic-ui.html#outputs)
+- **fluidPage()** é uma função de layout que configura a estrutura visual básica da página
+- **selectInput()** é um controle de entrada que permite que o usuário interaja com o aplicativo fornecendo um valor. Nesse caso, é uma caixa de seleção com o rótulo "Dataset" e permite que você escolha um dos conjuntos de dados incluídos no pacote *datasets*
+- **verbatimTextOutput()** e **tableOutput()** são controles de saída que informam ao Shiny onde colocar a saída 
+- **verbatimTextOutput()** exibe código e **tableOutput()** exibe tabelas
 
 ## Funções de layout, entradas e saídas
 
@@ -202,13 +213,13 @@ Não tenha medo de bisbilhotar para ver como esses vários layouts e controles f
 
 \center![](RunApp2.png){width="50%"}
 
-- Vemos apenas a entrada, não as duas saídas, porque ainda não dissemos ao Shiny como a entrada e as saídas estão relacionadas.
+- Vemos apenas a entrada, não as duas saídas, porque ainda não dissemos ao Shiny como a entrada e as saídas estão relacionadas (o **server** continua vazio)
 
 ## Adicionando tipos de saída
 
-- Agora, daremos vida às saídas definindo-as na função do servidor
+- Agora, daremos vida às saídas definindo-as na função do servidor (**server**)
 - O Shiny usa programação reativa para tornar os aplicativos interativos
-- Por enquanto, é suficiente saber que programação reativa envolve dizer ao Shiny como realizar um cálculo, não ordenar ao Shiny que realmente o faça
+- Por enquanto, é suficiente saber que programação reativa envolve dizer ao Shiny como realizar um cálculo
 - Ou seja, diremos ao Shiny como preencher as saídas **verbatimTextOutput()** e **tableOutput()** no aplicativo de exemplo, fornecendo as “receitas” para essas saídas
 
 ## Adicionando tipos de saída
@@ -257,7 +268,7 @@ dataset <- get(input$dataset, "package:datasets")
 ## Expressões reativas
 
 - Você cria uma expressão reativa envolvendo um bloco de código em **reactive({...})** e atribuindo-o a uma variável, e usa uma expressão reativa chamando-a como uma função
-- No entanto, enquanto parece que você está chamando uma função, uma expressão reativa tem uma diferença importante: ela só é executada na primeira vez que é chamada e depois armazena em cache seu resultado até que precise ser atualizado
+- No entanto, enquanto parece que você está chamando uma função, uma expressão reativa tem uma diferença importante: ela só é executada na primeira vez que é chamada e depois armazena seu resultado até que precise ser atualizado
 
 ## Usando expressões reativas
 
@@ -281,7 +292,388 @@ server <- function(input, output, session) {
 
 ## Resumo desta primeira parte
 
-- Nesta primeira parte do curso, você criou um aplicativo simples - não é muito interessante ou útil, mas viu como é fácil construir um aplicativo da web usando seu conhecimento \texttt{R} existente
+- Nesta primeira parte do curso, você criou um aplicativo simples - não muito interessante ou útil, mas viu como é fácil construir um aplicativo da web usando seu conhecimento \texttt{R} existente
 - Nos próximos momentos, você aprenderá mais sobre interfaces de usuário e programação reativa, os dois blocos básicos de construção do Shiny
-- Agora é um ótimo momento para pegar uma cópia da folha de [dicas Shiny](https://www.rstudio.com/resources/cheatsheets/)
+- Agora é um ótimo momento para pegar uma cópia da folha de dicas Shiny: https://www.rstudio.com/resources/cheatsheets/
 - Este é um ótimo recurso para ajudar a refrescar sua memória dos principais componentes de um aplicativo Shiny
+
+## UI básico
+
+- Como você acabou de ver, o Shiny incentiva a separação do código que gera sua interface de usuário (o front-end) do código que orienta o comportamento do seu aplicativo (o back-end)
+- A partir de agora, focaremos no front-end e faremos um tour rápido pelas entradas e saídas HTML fornecidas pelo Shiny
+- Isso lhe dá a capacidade de capturar muitos tipos de dados e exibir muitos tipos de saída R
+- Nesse curso, vamos nos ater principalmente às entradas e saídas incorporadas ao próprio Shiny\footnote{Você pode encontrar uma lista abrangente e mantida ativamente de outros pacotes em https://github.com/nanxstats/awesome-shiny-extensions, mantido por Nan Xiao}.
+
+## Inputs
+
+- Como vimos anteriormente, você usa funções como **sliderInput()**, **selectInput()**, **textInput()** e **numericInput()** para inserir controles de entrada em sua especificação de UI
+- Agora vamos discutir a estrutura comum subjacente a todas as funções de entrada e dar uma rápida visão geral das entradas incorporadas ao Shiny
+
+## Estrutura comum
+
+- Todas as funções de entrada têm o mesmo primeiro argumento: **inputId**
+  + este é o identificador usado para conectar o front-end com o back-end: se sua UI tiver uma entrada com ID **"name"**, a função do servidor irá acessá-la com **input$name**
+- O inputId tem duas restrições:
+  + Deve ser uma string simples que contenha apenas letras, números e underlines (não são permitidos espaços, traços, pontos ou outros caracteres especiais!)
+  + Deve ser único. Se não for único, você não terá como se referir a esse controle em sua função de servidor!
+  
+## Estrutura comum
+
+- A maioria das funções de entrada tem um segundo parâmetro chamado label - usado para criar um rótulo legível para o controle
+  + O Shiny não impõe restrições a essa string, mas você precisará pensar cuidadosamente sobre isso para garantir que seu aplicativo seja utilizável por humanos!
+- O terceiro parâmetro normalmente é o valor, que, sempre que possível, permite definir o valor padrão
+- Os demais parâmetros são exclusivos de cada controle
+
+## Estrutura comum - exemplo
+
+Ao criar uma entrada, recomendo fornecer os argumentos **inputId** e **label** por posição e todos os outros argumentos pelo seu nome, por exemplo:
+
+```{r}
+sliderInput("min", "Limit (minimum)",
+            value = 50, min = 0, max = 100)
+```
+
+\center![](EstruturaComum.png){width="70%"}
+
+## Tipos de inputs
+
+- A seguir vamos descrever - de forma rápida - as entradas incorporadas em Shiny, agrupadas de acordo com o tipo de controle que eles criam
+
+\center![](controlwidgets.png){width="100%"}
+
+## Inputs de texto livre
+
+- **textInput()**: coleta pequenas quantidades de texto
+- **passwordInput()**: coleta senhas
+- **textAreaInput()**: coleta parágrafos de texto
+
+```{r}
+ui <- fluidPage(
+  textInput("name", "What's your name?"),
+  passwordInput("password", "What's your password?"),
+  textAreaInput("story", "Tell me about yourself", 
+                rows = 3)
+)
+```
+
+## Inputs de texto livre
+
+\center![](TextoLivre.png){width="90%"}
+
+## Inputs numéricos
+
+- **numericInput()**: coleta valores numéricos através de uma caixa de texto restrita
+- **sliderInput()**: coleta valores numéricos através de um controle deslizante
+  + se você fornecer um vetor numérico de comprimento 2 para o valor padrão, obterá um controle deslizante de “intervalo” com duas extremidades
+
+```{r}
+ui <- fluidPage(
+  numericInput("num", "Number one",
+               value = 0, min = 0, max = 100),
+  sliderInput("num2", "Number two",
+              value = 50, min = 0, max = 100),
+  sliderInput("rng", "Range",
+              value = c(10, 20), min = 0, max = 100)
+)
+```
+
+## Inputs numéricos
+
+\center![](InputNumerico.png){width="90%"}
+
+\small
+
+Geralmente, é recomendado usar controles deslizantes apenas para intervalos pequenos ou casos em que o valor preciso não é tão importante. Tentar selecionar com precisão um número em um pequeno controle deslizante é um exercício de frustração!
+
+## Inputs de datas
+
+- **dateInput()**: coleta um único dia
+- **dateRangeInput()**: coleta um intervalo de dois dias
+
+\small
+
+```{r}
+ui <- fluidPage(
+  dateInput("dob", 
+            "When were you born?"),
+  dateRangeInput("holiday", 
+                 "When do you want to go on vacation next?")
+)
+```
+
+## Inputs de datas
+
+\center![](InputData.png){width="90%"}
+
+\small
+
+- O formato da data, o idioma e o dia em que a semana começa são padronizados para os padrões dos EUA
+- Se você estiver criando um aplicativo com um público internacional, defina o formato, o idioma e o início da semana para que as datas sejam naturais para seus usuários
+
+## Inputs limitados
+
+- **selectInput()**: coleta uma única informação a partir de um dropdown
+- **radioButtons()**: coleta uma única informação mostrando todas as opções possíveis
+
+```{r}
+animals <- c("dog", "cat", "mouse", "bird",
+             "other", "I hate animals")
+
+ui <- fluidPage(
+  selectInput("state", 
+              "What's your favourite state?",
+              state.name),
+  radioButtons("animal", 
+               "What's your favourite animal?",
+               animals)
+)
+```
+
+## Inputs limitados
+
+\center![](InputLimitado.png){width="90%"}
+
+## Radio buttons
+
+- Os Radio buttons têm dois recursos interessantes: 
+  + eles mostram todas as opções possíveis, tornando-os adequados para listas curtas e, por meio dos argumentos **choiceNames**/**choiceValues**, eles podem exibir outras opções além de texto simples
+  + **choiceNames** determina o que é mostrado ao usuário; **choiceValues** determina o que é retornado em sua função de servidor
+  
+## Radio buttons
+  
+```{r}
+ui <- fluidPage(
+  radioButtons("rb", "Choose one:",
+    choiceNames = list(
+      icon("angry"),
+      icon("smile"),
+      icon("sad-tear")
+    ),
+    choiceValues = list("angry", "happy", "sad")
+  )
+)
+```
+  
+## Radio buttons
+
+\center![](RadioButton.png){width="90%"}
+
+## Diversas seleções de input
+
+- Não há como selecionar vários valores com Radio Buttons, mas há uma alternativa conceitualmente semelhante: **checkboxGroupInput()**
+
+```{r}
+ui <- fluidPage(
+  checkboxGroupInput("animal", 
+                     "What animals do you like?",
+                     animals)
+)
+```
+
+## checkboxGroupInput()
+
+\center![](CheckInput.png){width="90%"}
+
+## checkboxInput()
+
+- Se você quiser uma única caixa de seleção para uma única pergunta sim/não, use **checkboxInput()**
+
+```{r}
+ui <- fluidPage(
+  checkboxInput("cleanup", "Clean up?", value = TRUE),
+  checkboxInput("shutdown", "Shutdown?")
+)
+```
+
+\center![](CheckInput2.png){width="90%"}
+
+## Upload de arquivos
+
+- **fileInput()**: permite que o usuário carregue um arquivo
+  + esse comando requer um tratamento especial pelo lado do servidor
+
+```{r}
+ui <- fluidPage(
+  fileInput("upload", NULL)
+)
+```
+
+\center![](InputUpload.png){width="90%"}
+
+## Botões de ação
+
+- Deixe o usuário realizar uma ação com **actionButton()** ou **actionLink()**
+
+```{r}
+ui <- fluidPage(
+  actionButton("click", "Click me!"),
+  actionButton("drink", "Drink me!", 
+               icon = icon("cocktail"))
+)
+```
+
+\center![](InputAction.png){width="90%"}
+
+## Outputs
+
+- As saídas na interface do usuário criam espaços reservados que são posteriormente preenchidos pela função do servidor
+- Assim como as entradas, as saídas recebem um ID exclusivo como primeiro argumento: se sua especificação de interface do usuário criar uma saída com o ID **"plot"**, você a acessará na função do servidor com **output$plot**
+- Cada função de saída no front-end é acoplada a uma função de renderização no back-end
+
+## Tipos de output
+
+- Existem três tipos principais de saída, correspondentes às três coisas que você normalmente inclui em um relatório: texto, tabelas e gráficos
+- A seguir vamos aprender o básico das funções de saída no front-end, juntamente com as funções de renderização correspondentes no back-end
+
+## Output texto
+
+- **textOutput()**: saída de texto regular
+- **verbatimTextOutput()**: saída de código e de console
+
+```{r}
+ui <- fluidPage(
+  textOutput("text"),
+  verbatimTextOutput("code")
+)
+server <- function(input, output, session) {
+  output$text <- renderText({ 
+    "Hello friend!" 
+  })
+  output$code <- renderPrint({ 
+    summary(1:10) 
+  })
+}
+```
+
+## Output texto
+
+\center![](OutputText.png){width="90%"}
+
+## Diferenças entre os comandos
+
+- Observe que existem duas funções de renderização que se comportam de forma ligeiramente diferente:
+  + **renderText()** combina o resultado em uma única string e geralmente é emparelhado com **textOutput()**
+  + **renderPrint()** imprime o resultado, como se você estivesse em um console \texttt{R}, e geralmente é emparelhado com **verbatimTextOutput()**
+
+## Output tabelas
+
+- Existem duas opções para exibir data frames em tabelas:
+  + **tableOutput()** e **renderTable()** renderizam uma tabela estática de dados, mostrando todos os dados de uma vez. Mais útil para resumos pequenos e fixos (por exemplo, coeficientes de modelo).
+  + **dataTableOutput()** e **renderDataTable()** renderizam uma tabela dinâmica, mostrando um número fixo de linhas junto com controles para alterar quais linhas são visíveis. Mais apropriado se você deseja expor um data frame completo ao usuário.
+  
+## Output tabelas
+
+```{r}
+ui <- fluidPage(
+  tableOutput("static"),
+  dataTableOutput("dynamic")
+)
+server <- function(input, output, session) {
+  output$static <- renderTable({
+    head(mtcars)
+    })
+  output$dynamic <- renderDataTable({
+    mtcars
+  }, options = list(pageLength = 5))
+}
+```
+
+## Output tabelas
+
+\center![](OutputTable.png){width="100%"}
+
+## Output gráficos
+
+- Você pode exibir qualquer tipo de gráfico \texttt{R} (base, ggplot2 ou outro) com **plotOutput()** e **renderPlot()**
+
+```{r}
+ui <- fluidPage(
+  plotOutput("plot", width = "400px")
+)
+server <- function(input, output, session) {
+  output$plot <- renderPlot(plot(1:5), res = 96)
+}
+```
+
+## Output gráficos
+
+\center![](OutputPlot.png){width="70%"}
+
+## Output gráficos
+
+- Por default, **plotOutput()** ocupará toda a largura de sua janela e terá 400 pixels de altura
+- Você pode substituir esses padrões pelos argumentos de altura e largura - é recomendado sempre definir res = 96, pois isso fará com que seus gráficos Shiny correspondam ao que você vê no RStudio o mais próximo possível
+
+## O básico da reatividade
+
+- Um aplicativo será muito chato se tiver apenas entradas ou apenas saídas
+- A verdadeira magia do Shiny acontece quando você tem um app com ambos
+- No Shiny, você expressa a lógica do seu servidor usando programação reativa
+- A ideia-chave da programação reativa é especificar dependências para que, quando uma entrada for alterada, todas as saídas relacionadas sejam atualizadas automaticamente
+- Isso torna o fluxo de um aplicativo consideravelmente mais simples, mas leva um tempo para entender como tudo se encaixa
+- Este curso fornecerá uma introdução suave à programação reativa, ensinando o básico das construções reativas mais comuns que você usará em aplicativos Shiny
+
+## Um exemplo com reatividade
+
+\small
+
+```{r}
+ui <- fluidPage(
+  textInput("name", "What's your name?"),
+  textOutput("greeting")
+)
+
+server <- function(input, output, session) {
+  output$greeting <- renderText({
+    paste0("Hello ", input$name, "!")
+  })
+}
+```
+
+\center![](Reatividade01.png){width="90%"}
+
+## Um exemplo um pouco mais complexo\footnote{https://raw.githubusercontent.com/wcota/covid19br/master/cases-brazil-states.csv}
+
+\footnotesize
+
+```{r}
+dados = read.csv("https://raw.githubusercontent.com/wcota/covid19br/master/cases-brazil-states.csv")
+dados = dados[which(dados$state == "TOTAL"),]
+variaveis = names(dados)[6:26]
+
+ui <- fluidPage(
+  selectInput("variavel", 
+              "Qual informação?",
+              variaveis),
+  plotOutput("plot", width = "400px")
+)
+
+server <- function(input, output, session) {
+  x1 <- reactive({
+    dados_BR = dados[,which(names(dados) == input$variavel)]
+  })
+  output$plot <- renderPlot({
+    plot(x1(), type = "l")
+  }, res = 96)
+}
+```
+
+## Um exemplo um pouco mais complexo
+
+\center![](ExemploComplexo.png){width="90%"}
+
+## Resumo desta segunda parte
+
+- Você foi apresentado as principais funções de entrada e saída que compõem o front-end de um aplicativo Shiny
+- Este foi um grande despejo de informações, então não espere lembrar de tudo depois de uma única leitura
+- Em vez disso, volte a estes slides quando estiver procurando por um componente específico
+
+## ...
+
+\LARGE \textbf{Dia 2:}
+
+\normalsize
+
+- um pouco sobre layouts
+- pacotes plotly, dygraphs e leaflet
+- como publicar seu Shiny App
